@@ -5,10 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\AbsenAgenda;
 use App\Models\Agenda;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class AbsenAgendaController extends Controller
 {
+    public function index()
+    {
+        $absenAgenda = AbsenAgenda::orderBy('created_at', 'desc')->get();
+        return response()->json($absenAgenda);
+    }
+
     public function store(Request $request)
     {
         $nama_agenda = $request->input('nama_agenda');

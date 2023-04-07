@@ -3,7 +3,6 @@
 use App\Http\Controllers\AbsenAgendaController;
 use App\Http\Controllers\AbsenPiketController;
 use App\Http\Controllers\AgendaController;
-use App\Models\AbsenPiket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +28,7 @@ Route::get('/agendas/{id}', [AgendaController::class, 'indexOne']);
 Route::put('/agendas/{id}', [AgendaController::class, 'update']);
 
 Route::post('/absen-piket', [AbsenPiketController::class, 'store']);
+Route::get('/absen-agenda', [AbsenAgendaController::class, 'index']);
 Route::post('/absen-agenda', [AbsenAgendaController::class, 'store']);
 
 
