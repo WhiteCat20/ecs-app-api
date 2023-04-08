@@ -8,6 +8,12 @@ use Illuminate\Support\Str;
 
 class AbsenPiketController extends Controller
 {
+    public function index()
+    {
+        $absen_piket = AbsenPiket::orderBy('created_at', 'desc')->get();
+        return response()->json($absen_piket);
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -35,6 +41,14 @@ class AbsenPiketController extends Controller
             'message' => 'Absen Piket uploaded successfully'
         ]);
     }
+
+    public function delete($id)
+    {
+        $absen_piket = AbsenPiket::findOrFail($id);
+        $absen_piket->delete();
+        return response()->json(['message' => 'The Piket has been deleted!']);
+    }
+
     public function randomNumber()
     {
         $min = 100000;

@@ -26,8 +26,11 @@ Route::get('/get-last-two-agendas', [AgendaController::class, 'getLastTwoAgenda'
 Route::post('/agendas', [AgendaController::class, 'store']);
 Route::get('/agendas/{id}', [AgendaController::class, 'indexOne']);
 Route::put('/agendas/{id}', [AgendaController::class, 'update']);
+Route::delete('/agendas/{id}', [AgendaController::class, 'delete']);
 
+Route::get('/absen-piket', [AbsenPiketController::class, 'index']);
 Route::post('/absen-piket', [AbsenPiketController::class, 'store']);
+Route::delete('/absen-piket/{id}', [AbsenPiketController::class, 'delete']);
 Route::get('/absen-agenda', [AbsenAgendaController::class, 'index']);
 Route::post('/absen-agenda', [AbsenAgendaController::class, 'store']);
 

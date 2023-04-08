@@ -53,4 +53,11 @@ class AgendaController extends Controller
         $agenda->update($request->all());
         return response()->json($agenda);
     }
+
+    public function delete($id)
+    {
+        $agenda = Agenda::findOrFail($id);
+        $agenda->delete();
+        return response()->json(['message' => 'The Agenda has been deleted!']);
+    }
 }
