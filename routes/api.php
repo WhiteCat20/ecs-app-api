@@ -3,6 +3,8 @@
 use App\Http\Controllers\AbsenAgendaController;
 use App\Http\Controllers\AbsenPiketController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\LogoutController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +19,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::post('/login', LoginController::class)->name('login');
+Route::post('/logout', LogoutController::class)->name('logout');
+
+Route::middleware('auth:api')->get('/datauser', function (Request $request) {
     return $request->user();
 });
+
 Route::get('/agendas', [AgendaController::class, 'index']);
 Route::get('/agendas-all', [AgendaController::class, 'indexAll']);
 Route::get('/get-last-two-agendas', [AgendaController::class, 'getLastTwoAgenda']);
