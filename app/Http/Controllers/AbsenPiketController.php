@@ -20,7 +20,7 @@ class AbsenPiketController extends Controller
             'nama_asisten' => 'required|string|max:255',
             'hari' => 'required',
             'berita_acara' => 'required|string',
-            'file_photo' => 'required|image|max:2048',
+            'file_photo' => 'required|image',
         ]);
         $file_photo = $request->file('file_photo');
         $nama_photo = $validatedData['nama_asisten'] . '-' . $validatedData['hari'] . '-' . $file_photo->getClientOriginalName();
