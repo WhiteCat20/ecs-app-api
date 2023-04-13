@@ -26,7 +26,7 @@ class AbsenAgendaController extends Controller
                 'nama_asisten' => 'required|string|max:255',
                 'nama_agenda' => 'required',
                 'kode_absensi' => 'required',
-                'file_photo' => 'required|image|max:2048',
+                'file_photo' => 'required|image',
             ]);
             $file_photo = $request->file('file_photo');
             $nama_photo = $validatedData['nama_asisten'] . '-' . $validatedData['nama_agenda'] . '-' . $file_photo->getClientOriginalName();
