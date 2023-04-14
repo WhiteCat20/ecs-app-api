@@ -5,6 +5,7 @@ use App\Http\Controllers\AbsenPiketController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\LogoutController;
+use App\Http\Controllers\TemperatureController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -43,3 +44,6 @@ Route::post('/absen-agenda', [AbsenAgendaController::class, 'store']);
 
 //Generate Random Number
 Route::get('/random-number', [AbsenPiketController::class, 'randomNumber']);
+
+//Temperature Data 
+Route::post('/temperature', TemperatureController::class);
