@@ -5,6 +5,7 @@ use App\Http\Controllers\AbsenPiketController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\LogoutController;
+use App\Http\Controllers\EcsPinjamController;
 use App\Http\Controllers\TemperatureController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,9 @@ Route::post('/absen-piket', [AbsenPiketController::class, 'store']);
 Route::delete('/absen-piket/{id}', [AbsenPiketController::class, 'delete']);
 Route::get('/absen-agenda', [AbsenAgendaController::class, 'index']);
 Route::post('/absen-agenda', [AbsenAgendaController::class, 'store']);
+
+Route::get('/pinjam', [EcsPinjamController::class, 'index']);
+Route::post('/pinjam', [EcsPinjamController::class, 'store']);
 
 
 //Generate Random Number
